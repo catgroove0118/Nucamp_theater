@@ -31,13 +31,13 @@
     </style>
 </head>
 <body>
-    <img src="images/magic.png" width="200px" alt="Magical mystery theater" id="icon" />
+    <img src="images/magic.png" width="200" alt="Magical mystery theater" id="icon" />
     <h1>Magical Mystery Theater</h1>
     <button type="button" onclick="buyTicket()">Purchase Ticket</button>
     <script>
         const GENERAL_ADMISSION_TICKET_COST = 20;
         const CHILD_AND_SENIOR_TICKET_COST = 10;
-        const MATINEE_CISCOUNT = 3;
+        const MATINEE_DISCOUNT = 3;
 
         function buyTicket() {
             const age = prompt('What is your age?');
@@ -47,6 +47,7 @@
             cost = applyMatineeDiscount(cost, isMatinee);
     
             alert('Your ticket will cost: $' + cost);
+            console.log("a");
         }
 
         function getBaseTicketCost(age) {
@@ -56,9 +57,9 @@
             return GENERAL_ADMISSION_TICKET_COST;
         }
 
-        function applyMatineeDiscount(cost, Matinee) {
+        function applyMatineeDiscount(cost, isMatinee) {
             if((isMatinee.toLowerCase() === 'yes') || (isMatinee.toLowerCase() === 'y')) {
-                return cost - MATINEE_CISCOUNT;
+                return cost - MATINEE_DISCOUNT;
             }
             return cost;
         }
